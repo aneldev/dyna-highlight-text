@@ -4,7 +4,7 @@ export interface IDynaHighlightTextProps {
   sourceText: string;
   highlightWords: string;
   caseSensitive?: boolean;
-  onHighlightRender?: (word: string, index: number) => TPartialText;
+  onHighlightRender?: (word: string) => TPartialText;
 }
 
 export type TPartialText = JSX.Element | string;
@@ -14,10 +14,10 @@ export class DynaHighlightText extends React.Component<IDynaHighlightTextProps> 
     sourceText: '',
     highlightWords: '',
     caseSensitive: false,
-    onHighlightRender: (word: string, index: number) => <span key={index} className="highlighted-text">{word}</span>,
+    onHighlightRender: (word: string) => <u>{word}</u>,
   };
 
-  private highlightText(text: string, words: string, caseSensitive: boolean, cbRenderHighlighedWord: (word: string, index: number) => TPartialText): TPartialText[] {
+  private highlightText(text: string, words: string, caseSensitive: boolean, cbRenderHighlighedWord: (word: string) => TPartialText): TPartialText[] {
     let textOriginal: string = text;
     let textProcess: string = text;
     let wordsOriginal: string[] = words.split(' ').filter(w => !!w);
@@ -40,7 +40,9 @@ export class DynaHighlightText extends React.Component<IDynaHighlightTextProps> 
             output.push(partialOutput);
             partialOutput = '';
           }
-          output.push(cbRenderHighlighedWord(textOriginal.substr(iChar, word.length), iWord));
+          let hWord: TPartialText = cbRenderHighlighedWord(textOriginal.substr(iChar, word.length));
+          if (typeof hWord !== 'string') hWord = React.cloneElement(hWord, {key: iChar + '-' + iWord});
+          output.push(hWord);
           iChar += wordsOriginal[iWord].length - 1;
           break;
         }

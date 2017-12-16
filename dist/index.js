@@ -621,7 +621,10 @@ var DynaHighlightText = /** @class */ (function (_super) {
                         output.push(partialOutput);
                         partialOutput = '';
                     }
-                    output.push(cbRenderHighlighedWord(textOriginal.substr(iChar, word.length), iWord));
+                    var hWord = cbRenderHighlighedWord(textOriginal.substr(iChar, word.length));
+                    if (typeof hWord !== 'string')
+                        hWord = React.cloneElement(hWord, { key: iChar + '-' + iWord });
+                    output.push(hWord);
                     iChar += wordsOriginal[iWord].length - 1;
                     break;
                 }
@@ -641,7 +644,7 @@ var DynaHighlightText = /** @class */ (function (_super) {
         sourceText: '',
         highlightWords: '',
         caseSensitive: false,
-        onHighlightRender: function (word, index) { return React.createElement("span", { key: index, className: "highlighted-text" }, word); },
+        onHighlightRender: function (word) { return React.createElement("u", null, word); },
     };
     return DynaHighlightText;
 }(React.Component));
