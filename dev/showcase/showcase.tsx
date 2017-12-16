@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {DynaHighlightText, IDynaHighlightTextProps} from "../../src";
+import {DynaHighlightText, IDynaHighlightTextProps} from "../../src/index";
 
 import {faIcon, IShowcase} from "dyna-showcase";
 import {Logo} from "../logo";
