@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home should highlight the word at front 1`] = `
+<DynaHighlightText
+  caseSensitive={false}
+  highlightWords="secret"
+  onHighlightRender={[Function]}
+  sourceText="Secret world"
+>
+  <span
+    className="highlighted-text"
+    key="0"
+  >
+    Secret
+  </span>
+   world
+</DynaHighlightText>
+`;
+
+exports[`Home should highlight the word at the end 1`] = `
+<DynaHighlightText
+  caseSensitive={false}
+  highlightWords="world"
+  onHighlightRender={[Function]}
+  sourceText="Secret world"
+>
+  Secret 
+  <span
+    className="highlighted-text"
+    key="0"
+  >
+    world
+  </span>
+</DynaHighlightText>
+`;
+
+exports[`Home should highlight the word at the end 2`] = `
+<DynaHighlightText
+  caseSensitive={false}
+  highlightWords="Secret"
+  onHighlightRender={[Function]}
+  sourceText="The secret world"
+>
+  The 
+  <span
+    className="highlighted-text"
+    key="0"
+  >
+    secret
+  </span>
+   world
+</DynaHighlightText>
+`;
