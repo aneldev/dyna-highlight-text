@@ -20,7 +20,7 @@
     "test-only": "jest --coverage --no-cache --runInBand",
     "test-watch": "jest --watch --verbose --runInBand",
     "pp": "npm run publish-push",
-    "publish-push": "git add -u && git add -A && git commit -m --amend --no-edit && npm version patch && npm publish && git push && git push --tags",
+    "publish-push": "git add -u && git add -A && git commit -m --amend --no-edit; npm version patch && npm publish && git push && git push --tags",
     "tpp": "npm run test-publish-push",
     "test-publish-push": "npm test && npm version patch && npm publish && git push && git push --tags",
     "sync-externals": "node syncExternals.js",
