@@ -1,4 +1,5 @@
-import 'jsdom-global/register';
+import "jest";
+
 import { configure } from 'enzyme';
 import * as Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new Adapter() });
@@ -6,7 +7,7 @@ configure({ adapter: new Adapter() });
 import * as React from 'react';
 import * as enzyme from 'enzyme';
 
-import {DynaHighlightText} from '../../src/index';
+import {DynaHighlightText} from '../../src';
 
 describe('Home', () => {
   let wrapper;

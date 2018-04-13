@@ -1,5 +1,4 @@
 // help: http://webpack.github.io/docs/tutorials/getting-started/
-const USE_CSSMODULES = true;
 
 module.exports = [
   {
@@ -7,7 +6,7 @@ module.exports = [
     test: /\.(jsx|js)$/,
     loader: 'babel-loader',
     query: {
-      presets: ["react", "es2015", "react", "stage-2"],
+      presets: ['react'],
     }
   },
   {

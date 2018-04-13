@@ -2,7 +2,6 @@
 // help: https://webpack.github.io/docs/webpack-dev-server.html#webpack-dev-server-cli
 const fs = require('fs');
 const path = require('path');
-const webpack = require('webpack');
 
 const package_ = JSON.parse(fs.readFileSync('./package.json', 'utf8'));
 const loaders = require('./webpack.loaders');
@@ -14,6 +13,7 @@ const config = {
     // the entry application code
     path.resolve(__dirname, 'src/index.tsx')
   ],
+  externals: Object.keys(package_.dependencies), // exclude all dependencies from the bundle
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'index.js',
