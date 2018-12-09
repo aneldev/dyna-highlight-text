@@ -12,17 +12,22 @@ console.log('To debug open address: http://localhost:' + serverPort + ' on any b
 console.log('');
 
 const config = {
+  mode: "development",
   entry: [
-    'babel-polyfill',
-    'webpack-dev-server/client?http://localhost:'+serverPort,
-    // todo: tttt -> 'webpack/hot/dev-server',
-    path.resolve(__dirname, 'dev/index.tsx')
+    'react-hot-loader/patch',                                 // activate HMR for React
+    'webpack-dev-server/client?http://localhost:'+serverPort, // bundle the client for webpack-dev-server and connect to the provided endpoint
+    'webpack/hot/only-dev-server',                            // bundle the client for hot reloading, only- means to only hot reload for successful updates
+    path.resolve(__dirname, 'dev/index.tsx'),
   ],
+  optimization: {
+    usedExports: true,       // true to remove the dead code, for more https://webpack.js.org/guides/tree-shaking/
+  },
+  devtool: "source-map",     // help: https://webpack.js.org/configuration/devtool/
   devServer: {
     hot: true,
     port: serverPort,
     publicPath: '/static',
-    historyApiFallback: true
+    historyApiFallback: true,
   },
   output: {
     path: path.resolve(__dirname, 'dev/public/static'),
@@ -33,10 +38,17 @@ const config = {
     extensions: [".webpack.js", ".web.js", ".ts", ".tsx", ".js", ".jsx"]
   },
   module: {
-    loaders: loaders
+    rules: loaders,
+  },
+  node: {
+    // universal app? place here your conditional imports for node env
+    fs: "empty",
+    path: "empty",
+    child_process: "empty",
   },
   plugins: [
-    // todo: tttt -> new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),     // enable HMR globally
+    new webpack.NamedModulesPlugin(),             // prints more readable module names in the browser console on HMR updates
   ].concat(plugins),
 };
 

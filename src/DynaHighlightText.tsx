@@ -53,9 +53,6 @@ export class DynaHighlightText extends React.Component<IDynaHighlightTextProps> 
     return output;
   }
 
-
-  public _test_highlightText = this.highlightText;
-
   public render(): TPartialText[] {
     const {sourceText, highlightWords, caseSensitive, onHighlightRender} = this.props;
     return this.highlightText(sourceText, highlightWords, caseSensitive, onHighlightRender);
