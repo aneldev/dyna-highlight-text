@@ -8,7 +8,7 @@ export interface IDynaHighlightTextProps {
 export declare type TPartialText = JSX.Element | string;
 export declare class DynaHighlightText extends React.Component<IDynaHighlightTextProps> {
     static defaultProps: IDynaHighlightTextProps;
-    private highlightText(text, words, caseSensitive, cbRenderHighlighedWord);
-    _test_highlightText: (text: string, words: string, caseSensitive: boolean, cbRenderHighlighedWord: (word: string) => TPartialText) => TPartialText[];
-    render(): TPartialText[];
+    private highlightText;
+    private wrapperStyle;
+    render(): JSX.Element;
 }
