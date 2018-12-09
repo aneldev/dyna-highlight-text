@@ -13,5 +13,4 @@ export const Logo= ()=>(
       <div className={styles.line2}>highlight it damn!</div>
     </div>
   </div>
-
 );

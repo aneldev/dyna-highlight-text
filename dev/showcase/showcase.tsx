@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {DynaHighlightText, IDynaHighlightTextProps} from "../../src/index";
+import {DynaHighlightText} from "../../src";
 
 import {IShowcase} from "dyna-showcase";
 import {Logo} from "../logo";
@@ -13,7 +13,7 @@ export default {
       slug: 'basic',
       faIconName: 'flask',
       title: 'highlight text',
-      description: 'Hightlight the "dummy Text" words',
+      description: 'Highlight the "dummy Text" words',
       center: true,
       wrapperStyle: {
         width: "50%",
