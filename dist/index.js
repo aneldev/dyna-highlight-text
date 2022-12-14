@@ -1,13 +1,13 @@
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory(require("react"));
+		module.exports = factory();
 	else if(typeof define === 'function' && define.amd)
-		define("dyna-highlight-text", ["react"], factory);
+		define("dyna-highlight-text", [], factory);
 	else if(typeof exports === 'object')
-		exports["dyna-highlight-text"] = factory(require("react"));
+		exports["dyna-highlight-text"] = factory();
 	else
-		root["dyna-highlight-text"] = factory(root["react"]);
-})(window, function(__WEBPACK_EXTERNAL_MODULE_react__) {
+		root["dyna-highlight-text"] = factory();
+})(window, function() {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -96,99 +96,6 @@ return /******/ (function(modules) { // webpackBootstrap
 /************************************************************************/
 /******/ ({
 
-/***/ "./node_modules/react-hot-loader/dist/react-hot-loader.production.min.js":
-/*!*******************************************************************************!*\
-  !*** ./node_modules/react-hot-loader/dist/react-hot-loader.production.min.js ***!
-  \*******************************************************************************/
-/*! no static exports found */
-/*! all exports used */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-function _interopDefault(t) {
-  return t && "object" == typeof t && "default" in t ? t.default : t;
-}
-
-Object.defineProperty(exports, "__esModule", {
-  value: !0
-});
-
-var React = _interopDefault(__webpack_require__(/*! react */ "react")),
-    classCallCheck = function (t, e) {
-  if (!(t instanceof e)) throw new TypeError("Cannot call a class as a function");
-},
-    inherits = function (t, e) {
-  if ("function" != typeof e && null !== e) throw new TypeError("Super expression must either be null or a function, not " + typeof e);
-  t.prototype = Object.create(e && e.prototype, {
-    constructor: {
-      value: t,
-      enumerable: !1,
-      writable: !0,
-      configurable: !0
-    }
-  }), e && (Object.setPrototypeOf ? Object.setPrototypeOf(t, e) : t.__proto__ = e);
-},
-    possibleConstructorReturn = function (t, e) {
-  if (!t) throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-  return !e || "object" != typeof e && "function" != typeof e ? t : e;
-},
-    AppContainer = function (t) {
-  function e() {
-    return classCallCheck(this, e), possibleConstructorReturn(this, t.apply(this, arguments));
-  }
-
-  return inherits(e, t), e.prototype.render = function () {
-    return React.Children.only(this.props.children);
-  }, e;
-}(React.Component),
-    hot_prod = function () {
-  return function (t) {
-    return t;
-  };
-},
-    areComponentsEqual = function (t, e) {
-  return t === e;
-},
-    setConfig = function () {},
-    cold = function (t) {
-  return t;
-};
-
-exports.AppContainer = AppContainer, exports.hot = hot_prod, exports.areComponentsEqual = areComponentsEqual, exports.setConfig = setConfig, exports.cold = cold;
-
-/***/ }),
-
-/***/ "./node_modules/react-hot-loader/index.js":
-/*!************************************************!*\
-  !*** ./node_modules/react-hot-loader/index.js ***!
-  \************************************************/
-/*! no static exports found */
-/*! all exports used */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var evalAllowed = false;
-
-try {
-  eval('evalAllowed = true');
-} catch (e) {} // eval not allowed due to CSP
-// RHL needs setPrototypeOf to operate Component inheritance, and eval to patch methods
-
-
-var platformSupported = !!Object.setPrototypeOf && evalAllowed;
-
-if (true) {
-  if (false) {}
-
-  module.exports = __webpack_require__(/*! ./dist/react-hot-loader.production.min.js */ "./node_modules/react-hot-loader/dist/react-hot-loader.production.min.js");
-} else {}
-
-/***/ }),
-
 /***/ "./node_modules/webpack/buildin/module.js":
 /*!***********************************!*\
   !*** (webpack)/buildin/module.js ***!
@@ -197,30 +104,29 @@ if (true) {
 /*! all exports used */
 /***/ (function(module, exports) {
 
-module.exports = function (module) {
-  if (!module.webpackPolyfill) {
-    module.deprecate = function () {};
-
-    module.paths = []; // module.parent = undefined by default
-
-    if (!module.children) module.children = [];
-    Object.defineProperty(module, "loaded", {
-      enumerable: true,
-      get: function () {
-        return module.l;
-      }
-    });
-    Object.defineProperty(module, "id", {
-      enumerable: true,
-      get: function () {
-        return module.i;
-      }
-    });
-    module.webpackPolyfill = 1;
-  }
-
-  return module;
+module.exports = function(module) {
+	if (!module.webpackPolyfill) {
+		module.deprecate = function() {};
+		module.paths = [];
+		// module.parent = undefined by default
+		if (!module.children) module.children = [];
+		Object.defineProperty(module, "loaded", {
+			enumerable: true,
+			get: function() {
+				return module.l;
+			}
+		});
+		Object.defineProperty(module, "id", {
+			enumerable: true,
+			get: function() {
+				return module.i;
+			}
+		});
+		module.webpackPolyfill = 1;
+	}
+	return module;
 };
+
 
 /***/ }),
 
@@ -236,69 +142,78 @@ module.exports = function (module) {
 /* WEBPACK VAR INJECTION */(function(module) {
 
 (function () {
-  var enterModule = __webpack_require__(/*! react-hot-loader */ "./node_modules/react-hot-loader/index.js").enterModule;
-
+  var enterModule = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.enterModule : undefined;
   enterModule && enterModule(module);
 })();
 
-var __extends = this && this.__extends || function () {
-  var _extendStatics = function extendStatics(d, b) {
-    _extendStatics = Object.setPrototypeOf || {
-      __proto__: []
-    } instanceof Array && function (d, b) {
-      d.__proto__ = b;
-    } || function (d, b) {
-      for (var p in b) {
-        if (b.hasOwnProperty(p)) d[p] = b[p];
+var __signature__ = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal["default"].signature : function (a) {
+  return a;
+};
+
+var __createBinding = this && this.__createBinding || (Object.create ? function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  var desc = Object.getOwnPropertyDescriptor(m, k);
+
+  if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+    desc = {
+      enumerable: true,
+      get: function get() {
+        return m[k];
       }
     };
+  }
 
-    return _extendStatics(d, b);
-  };
+  Object.defineProperty(o, k2, desc);
+} : function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  o[k2] = m[k];
+});
 
-  return function (d, b) {
-    _extendStatics(d, b);
+var __setModuleDefault = this && this.__setModuleDefault || (Object.create ? function (o, v) {
+  Object.defineProperty(o, "default", {
+    enumerable: true,
+    value: v
+  });
+} : function (o, v) {
+  o["default"] = v;
+});
 
-    function __() {
-      this.constructor = d;
-    }
+var __importStar = this && this.__importStar || function (mod) {
+  if (mod && mod.__esModule) return mod;
+  var result = {};
+  if (mod != null) for (var k in mod) {
+    if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+  }
 
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-  };
-}();
+  __setModuleDefault(result, mod);
+
+  return result;
+};
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.DynaHighlightText = void 0;
 
-var React = __webpack_require__(/*! react */ "react");
+var React = __importStar(__webpack_require__(/*! react */ "react"));
 
-var DynaHighlightText =
-/** @class */
-function (_super) {
-  __extends(DynaHighlightText, _super);
+var DynaHighlightText = function DynaHighlightText(props) {
+  var sourceText = props.sourceText,
+      highlightWords = props.highlightWords,
+      _a = props.caseSensitive,
+      caseSensitive = _a === void 0 ? false : _a,
+      _b = props.onHighlightRender,
+      onHighlightRender = _b === void 0 ? function (word) {
+    return React.createElement("u", null, word);
+  } : _b;
 
-  function DynaHighlightText() {
-    var _this = _super !== null && _super.apply(this, arguments) || this;
-
-    _this.wrapperStyle = {
-      whiteSpace: "pre-wrap"
-    };
-    return _this;
-  }
-
-  DynaHighlightText.prototype.highlightText = function () {
-    var _a = this.props,
-        sourceText = _a.sourceText,
-        highlightWords = _a.highlightWords,
-        caseSensitive = _a.caseSensitive,
-        onHighlightRender = _a.onHighlightRender;
+  var highlightText = function highlightText() {
     var textOriginal = sourceText;
     var textProcess = sourceText;
     var wordsOriginal = highlightWords.split(' ').filter(function (w) {
       return !!w;
     });
-    var wordsProcess = [].concat.apply([], wordsOriginal);
+    var wordsProcess = wordsOriginal.concat();
     var output = [];
     var partialOutput = '';
 
@@ -315,7 +230,7 @@ function (_super) {
       for (var iWord = 0; iWord < wordsProcess.length; iWord++) {
         var word = wordsProcess[iWord];
 
-        if (textProcess.substr(iChar, word.length) === word) {
+        if (textProcess.substring(iChar, word.length) === word) {
           wordFound = true;
 
           if (partialOutput) {
@@ -323,7 +238,7 @@ function (_super) {
             partialOutput = '';
           }
 
-          var hWord = onHighlightRender(textOriginal.substr(iChar, word.length));
+          var hWord = onHighlightRender(textOriginal.substring(iChar, word.length));
           if (typeof hWord !== 'string') hWord = React.cloneElement(hWord, {
             key: iChar + '-' + iWord
           });
@@ -340,41 +255,32 @@ function (_super) {
     return output;
   };
 
-  DynaHighlightText.prototype.render = function () {
-    return React.createElement("span", {
-      style: this.wrapperStyle
-    }, this.highlightText());
-  };
-
-  DynaHighlightText.defaultProps = {
-    sourceText: '',
-    highlightWords: '',
-    caseSensitive: false,
-    onHighlightRender: function onHighlightRender(word) {
-      return React.createElement("u", null, word);
-    }
-  };
-  return DynaHighlightText;
-}(React.Component);
+  return React.createElement(React.Fragment, null, highlightText());
+};
 
 exports.DynaHighlightText = DynaHighlightText;
 ;
 
 (function () {
-  var reactHotLoader = __webpack_require__(/*! react-hot-loader */ "./node_modules/react-hot-loader/index.js").default;
-
-  var leaveModule = __webpack_require__(/*! react-hot-loader */ "./node_modules/react-hot-loader/index.js").leaveModule;
+  var reactHotLoader = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.default : undefined;
 
   if (!reactHotLoader) {
     return;
   }
 
-  reactHotLoader.register(__extends, "__extends", "/Users/dennis/dev/dyna/dyna-highlight-text/src/DynaHighlightText.tsx");
-  reactHotLoader.register(DynaHighlightText, "DynaHighlightText", "/Users/dennis/dev/dyna/dyna-highlight-text/src/DynaHighlightText.tsx");
-  leaveModule(module);
+  reactHotLoader.register(__createBinding, "__createBinding", "/Users/dennisat/dev/dyna/dyna-highlight-text/src/DynaHighlightText.tsx");
+  reactHotLoader.register(__setModuleDefault, "__setModuleDefault", "/Users/dennisat/dev/dyna/dyna-highlight-text/src/DynaHighlightText.tsx");
+  reactHotLoader.register(__importStar, "__importStar", "/Users/dennisat/dev/dyna/dyna-highlight-text/src/DynaHighlightText.tsx");
+  reactHotLoader.register(React, "React", "/Users/dennisat/dev/dyna/dyna-highlight-text/src/DynaHighlightText.tsx");
+  reactHotLoader.register(DynaHighlightText, "DynaHighlightText", "/Users/dennisat/dev/dyna/dyna-highlight-text/src/DynaHighlightText.tsx");
 })();
 
 ;
+
+(function () {
+  var leaveModule = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.leaveModule : undefined;
+  leaveModule && leaveModule(module);
+})();
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../node_modules/webpack/buildin/module.js */ "./node_modules/webpack/buildin/module.js")(module)))
 
 /***/ }),
@@ -390,13 +296,23 @@ exports.DynaHighlightText = DynaHighlightText;
 "use strict";
 
 
+var __signature__ = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal["default"].signature : function (a) {
+  return a;
+};
+
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.DynaHighlightText = void 0;
 
 var DynaHighlightText_1 = __webpack_require__(/*! ./DynaHighlightText */ "./src/DynaHighlightText.tsx");
 
-exports.DynaHighlightText = DynaHighlightText_1.DynaHighlightText;
+Object.defineProperty(exports, "DynaHighlightText", {
+  enumerable: true,
+  get: function get() {
+    return DynaHighlightText_1.DynaHighlightText;
+  }
+});
 
 /***/ }),
 
@@ -408,7 +324,7 @@ exports.DynaHighlightText = DynaHighlightText_1.DynaHighlightText;
 /*! all exports used */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/dennis/dev/dyna/dyna-highlight-text/src/index.tsx */"./src/index.tsx");
+module.exports = __webpack_require__(/*! /Users/dennisat/dev/dyna/dyna-highlight-text/src/index.tsx */"./src/index.tsx");
 
 
 /***/ }),
@@ -421,7 +337,7 @@ module.exports = __webpack_require__(/*! /Users/dennis/dev/dyna/dyna-highlight-t
 /*! all exports used */
 /***/ (function(module, exports) {
 
-module.exports = __WEBPACK_EXTERNAL_MODULE_react__;
+module.exports = require("react");
 
 /***/ })
 

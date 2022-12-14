@@ -1,11 +1,10 @@
-import "jest";
+import * as React from "react";
+import * as enzyme from "enzyme";
 
-import { configure } from 'enzyme';
-import * as Adapter from 'enzyme-adapter-react-16';
-configure({ adapter: new Adapter() });
+// @ts-ignore
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 
-import * as React from 'react';
-import * as enzyme from 'enzyme';
+enzyme.configure({ adapter: new Adapter() });
 
 import {DynaHighlightText} from '../../src';
 
@@ -30,6 +29,13 @@ describe('Home', () => {
   it('should highlight the word at the end', () => {
     wrapper = enzyme.mount(
       <DynaHighlightText sourceText="The secret world" highlightWords="Secret"/>,
+      {}
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
+  it('should highlight two words', () => {
+    wrapper = enzyme.mount(
+      <DynaHighlightText sourceText="The secret world" highlightWords="world Secret"/>,
       {}
     );
     expect(wrapper).toMatchSnapshot();

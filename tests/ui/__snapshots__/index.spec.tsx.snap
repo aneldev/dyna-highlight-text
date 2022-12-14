@@ -2,9 +2,7 @@
 
 exports[`Home should highlight the word at front 1`] = `
 <DynaHighlightText
-  caseSensitive={false}
   highlightWords="secret"
-  onHighlightRender={[Function]}
   sourceText="Secret world"
 >
   <u
@@ -18,9 +16,7 @@ exports[`Home should highlight the word at front 1`] = `
 
 exports[`Home should highlight the word at the end 1`] = `
 <DynaHighlightText
-  caseSensitive={false}
   highlightWords="world"
-  onHighlightRender={[Function]}
   sourceText="Secret world"
 >
   Secret 
@@ -34,9 +30,7 @@ exports[`Home should highlight the word at the end 1`] = `
 
 exports[`Home should highlight the word at the end 2`] = `
 <DynaHighlightText
-  caseSensitive={false}
   highlightWords="Secret"
-  onHighlightRender={[Function]}
   sourceText="The secret world"
 >
   The 
@@ -46,5 +40,25 @@ exports[`Home should highlight the word at the end 2`] = `
     secret
   </u>
    world
+</DynaHighlightText>
+`;
+
+exports[`Home should highlight two words 1`] = `
+<DynaHighlightText
+  highlightWords="world Secret"
+  sourceText="The secret world"
+>
+  The 
+  <u
+    key="4-1"
+  >
+    secret
+  </u>
+   
+  <u
+    key="11-0"
+  >
+    world
+  </u>
 </DynaHighlightText>
 `;
