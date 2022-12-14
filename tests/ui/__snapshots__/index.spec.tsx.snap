@@ -28,7 +28,7 @@ exports[`Home should highlight the word at the end 1`] = `
 </DynaHighlightText>
 `;
 
-exports[`Home should highlight the word at the end 2`] = `
+exports[`Home should highlight the word at the middle 1`] = `
 <DynaHighlightText
   highlightWords="Secret"
   sourceText="The secret world"
