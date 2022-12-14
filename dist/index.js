@@ -230,7 +230,7 @@ var DynaHighlightText = function DynaHighlightText(props) {
       for (var iWord = 0; iWord < wordsProcess.length; iWord++) {
         var word = wordsProcess[iWord];
 
-        if (textProcess.substring(iChar, word.length) === word) {
+        if (textProcess.substring(iChar, iChar + word.length) === word) {
           wordFound = true;
 
           if (partialOutput) {
@@ -238,7 +238,7 @@ var DynaHighlightText = function DynaHighlightText(props) {
             partialOutput = '';
           }
 
-          var hWord = onHighlightRender(textOriginal.substring(iChar, word.length));
+          var hWord = onHighlightRender(textOriginal.substring(iChar, iChar + word.length));
           if (typeof hWord !== 'string') hWord = React.cloneElement(hWord, {
             key: iChar + '-' + iWord
           });
