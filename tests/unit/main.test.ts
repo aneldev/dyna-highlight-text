@@ -1,13 +1,10 @@
-import "jest";
-declare let window: any;
-if (typeof jasmine !== 'undefined') jasmine.DEFAULT_TIMEOUT_INTERVAL = 5000;
-
 import {DynaHighlightText} from '../../src';
+if (typeof jasmine !== 'undefined') jest.setTimeout(5000);
 
-// help: https://facebook.github.io/jest/docs/expect.html
+// Help: https://facebook.github.io/jest/docs/expect.html
 
 describe('Simple unit test', () => {
   it('should import the component', () => {
-		expect(DynaHighlightText).not.toBe(undefined);
-	});
+    expect(DynaHighlightText).not.toBe(undefined);
+  });
 });

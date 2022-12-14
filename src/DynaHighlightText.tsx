@@ -33,7 +33,7 @@ export const DynaHighlightText = (props: IDynaHighlightTextProps): JSX.Element =
     for (let iChar: number = 0; iChar < textProcess.length; iChar++) {
       let wordFound: boolean = false;
       for (let iWord: number = 0; iWord < wordsProcess.length; iWord++) {
-        let word: string = wordsProcess[iWord];
+        const word: string = wordsProcess[iWord];
         if (textProcess.substring(iChar, iChar + word.length) === word) {
           wordFound = true;
           if (partialOutput) {
@@ -51,7 +51,7 @@ export const DynaHighlightText = (props: IDynaHighlightTextProps): JSX.Element =
     }
     if (partialOutput) output.push(partialOutput);
     return output;
-  }
+  };
 
   return <>{highlightText()}</>;
-}
+};
