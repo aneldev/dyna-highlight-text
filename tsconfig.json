@@ -11,19 +11,28 @@
     "declaration": true,
     "declarationDir": "./dist/",
     "sourceMap": true,
-    "noImplicitAny": true,
     "module": "commonjs",
     "target": "es5",
     "jsx": "react",
     "allowJs": false,
-    "noErrorTruncation": true,
+    "esModuleInterop": true,
     "skipLibCheck": true,
+    "noErrorTruncation": true,
+    "noImplicitAny": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "strictNullChecks": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
     "types": [
-      "node"
+      "node",
+      "jest"
     ]
   },
+  "compileOnSave": false,
   "files": [
-    "src/index.tsx"
-  ],
-  "compileOnSave": false
+    "./src/index.tsx"
+  ]
 }

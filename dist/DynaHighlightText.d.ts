@@ -1,4 +1,3 @@
-import * as React from "react";
 export interface IDynaHighlightTextProps {
     sourceText: string;
     highlightWords: string;
@@ -6,9 +5,4 @@ export interface IDynaHighlightTextProps {
     onHighlightRender?: (word: string) => TPartialText;
 }
 export declare type TPartialText = JSX.Element | string;
-export declare class DynaHighlightText extends React.Component<IDynaHighlightTextProps> {
-    static defaultProps: IDynaHighlightTextProps;
-    private highlightText;
-    private wrapperStyle;
-    render(): JSX.Element;
-}
+export declare const DynaHighlightText: (props: IDynaHighlightTextProps) => JSX.Element;
